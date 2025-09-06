@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DevHive — Hive of Developers | Nearshore Software Development</title>
+  <meta name="description" content="DevHive — Nearshore software development from Tijuana. Custom software solutions with professional quality, competitive pricing, and 10+ years of experience working with U.S. companies." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #ffffff;
+      --muted-bg: #f8f6f2;
+      --accent: #f0b429; /* honey / yellow */
+      --accent-2: #ffb84d;
+      --text: #0f1720; /* dark gray */
+      --muted-text: #5b6168;
+      --card: #ffffff;
+      --radius: 12px;
+      --glass: rgba(15,23,32,0.04);
+      --maxw: 1100px;
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      margin:0;
+      color:var(--text);
+      background:linear-gradient(180deg,var(--muted-bg),#fff 40%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-text-size-adjust:100%;
+    }
+
+    .container{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:40px 24px;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:28px;
+    }
+
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      text-decoration:none;
+      color:var(--text);
+    }
+
+    .logo{
+      width:54px;
+      height:54px;
+      display:inline-grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      border-radius:10px;
+      box-shadow: 0 6px 18px rgba(240,180,41,0.12);
+      flex:0 0 54px;
+    }
+    .logo svg{width:28px;height:28px;display:block;fill:white}
+
+    .brand h1{
+      font-size:18px;
+      line-height:1;
+      margin:0;
+      font-weight:700;
+    }
+    .brand p{margin:0;font-size:12px;color:var(--muted-text)}
+
+    nav{display:flex;gap:14px;align-items:center}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      border:0;
+    }
+
+    .btn-primary{
+      background:var(--text);
+      color:#fff;
+      box-shadow: 0 6px 18px rgba(15,23,32,0.08);
+    }
+    .btn-ghost{
+      background:transparent;
+      color:var(--text);
+      border:1px solid rgba(15,23,32,0.06);
+    }
+
+    /* HERO */
+    .hero{
+      display:flex;
+      align-items:stretch;
+      gap:40px;
+      margin-bottom:40px;
+    }
+    .hero-left{
+      flex:1 1 520px;
+    }
+    .kicker{
+      display:inline-block;
+      background:var(--glass);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+      color:var(--muted-text);
+      margin-bottom:18px;
+    }
+    h2{
+      font-size:34px;
+      margin:0 0 12px 0;
+      letter-spacing:-0.3px;
+    }
+    p.lead{
+      margin:0 0 20px 0;
+      color:var(--muted-text);
+      font-size:16px;
+      max-width:56ch;
+    }
+
+    .cta-row{display:flex;gap:12px;align-items:center}
+    .secondary{
+      font-size:14px;color:var(--muted-text)
+    }
+
+    /* hero right / feature card */
+    .card{
+      flex:0 0 360px;
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:0 8px 30px rgba(15,23,32,0.04);
+      border:1px solid rgba(15,23,32,0.03);
+      height:fit-content;
+    }
+    .card h3{margin:0 0 8px 0;font-size:16px}
+    .meta{font-size:13px;color:var(--muted-text);margin-bottom:12px}
+    .list{display:grid;gap:8px}
+    .list .item{display:flex;gap:10px;align-items:flex-start}
+    .dot{width:10px;height:10px;border-radius:3px;background:var(--accent);margin-top:6px;flex:0 0 10px}
+
+    /* services grid */
+    .services{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin:36px 0 48px 0;
+    }
+    .service{
+      background:#fff;border-radius:12px;padding:18px;border:1px solid rgba(15,23,32,0.03);
+      box-shadow: 0 6px 18px rgba(15,23,32,0.03);
+    }
+    .service h4{margin:0 0 8px 0;font-size:15px}
+    .service p{margin:0;color:var(--muted-text);font-size:14px}
+
+    /* Why section */
+    .why{
+      display:flex;
+      gap:22px;
+      align-items:stretch;
+      margin-bottom:48px;
+    }
+    .why .left{flex:1}
+    .pro-list{display:flex;flex-direction:column;gap:10px}
+    .pro{display:flex;gap:12px;align-items:flex-start}
+    .pro .ico{width:44px;height:44px;border-radius:8px;background:var(--accent);display:grid;place-items:center;color:#fff;font-weight:700}
+
+    /* footer */
+    footer{padding:24px 0;border-top:1px solid rgba(15,23,32,0.04);color:var(--muted-text);font-size:14px}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{flex-direction:column}
+      .card{flex:unset;width:100%}
+      .services{grid-template-columns:repeat(2,1fr)}
+      header{padding-bottom:12px}
+    }
+    @media (max-width:640px){
+      .services{grid-template-columns:1fr}
+      h2{font-size:28px}
+      .logo{width:44px;height:44px}
+      .brand h1{font-size:16px}
+      .container{padding:24px}
+      .kicker{font-size:12px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header role="banner">
+      <a class="brand" href="#" aria-label="DevHive home">
+        <span class="logo" aria-hidden="true">
+          <!-- simple hex + bee svg; replace with your logo if you want -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2.2 9.2 4.1 12 6 14.8 4.1 12 2.2zM6 6.8 3.2 8.7 6 10.6 8.8 8.7 6 6.8zM18 6.8 15.2 8.7 18 10.6 20.8 8.7 18 6.8zM12 18l-2.8 1.9L12 21.8l2.8-1.9L12 18zm-6-5.2L3.2 14.7 6 16.6l2.8-1.9L6 12.8zM18 12.8l-2.8 1.9L18 16.6l2.8-1.9L18 12.8z" fill="white"/>
+          </svg>
+        </span>
+        <div>
+          <h1>DevHive</h1>
+          <p>Hive of Developers | Nearshore Software Development</p>
+        </div>
+      </a>
+
+      <nav aria-label="Primary">
+        <a class="btn btn-ghost" href="#services">Services</a>
+        <a class="btn btn-ghost" href="#why">Why DevHive</a>
+        <a class="btn btn-primary" href="#contact">Request Quote</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-left">
+          <span class="kicker">Nearshore from Tijuana • Same time zone as CA</span>
+          <h2 id="hero-title">Build better software, faster — with a DevHive team.</h2>
+          <p class="lead">Custom software solutions from Tijuana with professional quality and competitive pricing. Over 10 years of experience working with U.S. companies. Staff augmentation, product development, cloud & DevOps, QA and ongoing support.</p>
+
+          <div class="cta-row" style="margin-top:18px;">
+            <a class="btn btn-primary" href="#contact">Get a free consultation</a>
+            <a class="btn btn-ghost" href="#services">See services</a>
+            <p class="secondary" style="margin-left:12px">Save time & costs — same timezone collaboration</p>
+          </div>
+        </div>
+
+        <aside class="card" aria-label="Quick facts">
+          <h3>DevHive — Quick facts</h3>
+          <div class="meta">Nearshore software development • Tijuana, Mexico</div>
+
+          <div class="list" role="list">
+            <div class="item">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
+                <strong>10+ years</strong>
+                <div style="color:var(--muted-text);font-size:13px">Experience working with U.S. companies</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
+                <strong>Competitive pricing</strong>
+                <div style="color:var(--muted-text);font-size:13px">Save up to 40% vs hiring locally</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
+                <strong>Same timezone</strong>
+                <div style="color:var(--muted-text);font-size:13px">Real-time collaboration with CA & US Pacific</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- Services -->
+      <section id="services" aria-labelledby="services-title">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+          <h3 id="services-title" style="margin:0">Services</h3>
+          <p style="margin:0;color:var(--muted-text)">Custom development, teams & support</p>
+        </div>
+
+        <div class="services">
+          <article class="service" aria-labelledby="s1">
+            <h4 id="s1">Custom Software Development</h4>
+            <p>Web apps, mobile apps, APIs and microservices — scalable and secure solutions tailored to your business.</p>
+          </article>
+
+          <article class="service" aria-labelledby="s2">
+            <h4 id="s2">Staff Augmentation</h4>
+            <p>Dedicated developers integrated into your team. Flexible contracts: part-time, full-time, project-based.</p>
+          </article>
+
+          <article class="service" aria-labelledby="s3">
+            <h4 id="s3">UI / UX Design</h4>
+            <p>Product design, prototypes and design systems (Figma). User-centered and conversion-focused interfaces.</p>
+          </article>
+
+          <article class="service" aria-labelledby="s4">
+            <h4 id="s4">Cloud & DevOps</h4>
+            <p>AWS, Azure, GCP: CI/CD, infra-as-code and monitoring for reliable deployments and scale.</p>
+          </article>
+
+          <article class="service" aria-labelledby="s5">
+            <h4 id="s5">QA & Testing</h4>
+            <p>Manual and automated testing, performance and security audits to ensure release quality.</p>
+          </article>
+
+          <article class="service" aria-labelledby="s6">
+            <h4 id="s6">Maintenance & Support</h4>
+            <p>SLA-backed maintenance packages, updates and long-term product support.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Why DevHive -->
+      <section id="why" class="why" aria-labelledby="why-title">
+        <div class="left">
+          <h3 id="why-title">Why DevHive?</h3>
+          <p style="color:var(--muted-text);max-width:64ch">We combine nearshore proximity with engineering discipline to deliver tailored software that moves your business forward. Our teams operate in your timezone, follow best practices and focus on measurable results.</p>
+
+          <div class="pro-list" style="margin-top:16px">
+            <div class="pro">
+              <div class="ico">10+</div>
+              <div>
+                <strong>Years of experience</strong>
+                <div style="color:var(--muted-text);font-size:13px">Delivering software to U.S. companies</div>
+              </div>
+            </div>
+
+            <div class="pro">
+              <div class="ico">Near</div>
+              <div>
+                <strong>Nearshore advantage</strong>
+                <div style="color:var(--muted-text);font-size:13px">Same timezone, better collaboration</div>
+              </div>
+            </div>
+
+            <div class="pro">
+              <div class="ico">QA</div>
+              <div>
+                <strong>Quality first</strong>
+                <div style="color:var(--muted-text);font-size:13px">Code reviews, tests and secure deployments</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="flex:0 0 320px">
+          <div style="background:linear-gradient(180deg, #fff, #fff);border-radius:12px;padding:16px;border:1px solid rgba(15,23,32,0.03);box-shadow:0 10px 30px rgba(15,23,32,0.04)">
+            <h4 style="margin-top:0">Get started</h4>
+            <p style="margin:0 0 12px;color:var(--muted-text)">Tell us about your project and we'll prepare a no-obligation plan and estimate.</p>
+
+            <form id="contact" action="#" method="post" aria-label="Contact form" style="display:grid;gap:10px">
+              <input name="name" type="text" placeholder="Your name" required style="padding:10px;border-radius:8px;border:1px solid rgba(15,23,32,0.06)">
+              <input name="company" type="text" placeholder="Company" style="padding:10px;border-radius:8px;border:1px solid rgba(15,23,32,0.06)">
+              <input name="email" type="email" placeholder="Email" required style="padding:10px;border-radius:8px;border:1px solid rgba(15,23,32,0.06)">
+              <textarea name="message" rows="4" placeholder="Brief description" style="padding:10px;border-radius:8px;border:1px solid rgba(15,23,32,0.06)"></textarea>
+              <button type="submit" class="btn btn-primary" style="width:100%;">Request consultation</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap">
+        <div>© <strong>DevHive</strong> — Nearshore Software Development from Tijuana</div>
+        <div style="color:var(--muted-text)">Email: <a href="mailto:hello@devhive.mx" style="color:inherit;text-decoration:underline">hello@devhive.mx</a></div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Optional: simple form handler; replace with your backend -->
+  <script>
+    document.querySelector('form#contact')?.addEventListener('submit', function (e) {
+      e.preventDefault();
+      // Minimal client-side UX: pretend to send and show confirmation
+      const btn = this.querySelector('button[type="submit"]');
+      const old = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = 'Sending…';
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = old;
+        alert('Thanks! We received your request. We will contact you shortly.');
+        this.reset();
+      }, 900);
+    });
+  </script>
+</body>
+</html>
